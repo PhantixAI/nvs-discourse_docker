@@ -98,6 +98,7 @@ run:
         - sudo -H -E -u discourse git clean -f
         - |-
           sudo -H -E -u discourse bash -c '
+            sudo -H -E -u discourse git remote set-url origin $git_url
             set -o errexit
             git fetch --tags --prune-tags --prune --force origin
             if [[ $(git symbolic-ref --short HEAD) == $version ]] ; then
